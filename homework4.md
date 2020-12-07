@@ -65,9 +65,11 @@ bioawk -c fastx '{print length($seq) }' dmel-all-chromosome-r6.36.under100kb.fas
 plotCDF lengths_under100kb.txt cdf_under_100kb.png
 ```
 Over 100kb:
+
 ![Over 100kb partition cdf](cdf_over_100kb.png)
 
 Under 100kb:
+
 ![Under 100kb partition cdf](cdf_under_100kb.png)
 
 ## Genome assembly
