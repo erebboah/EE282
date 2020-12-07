@@ -181,18 +181,19 @@ conda activate ee282
 
 conda install -c bioconda busco
 
-mkdir $basedir/$projname/data/ref
+basedir=~/
+projname=nanopore_assembly
+basedir=$basedir
+processed=$basedir/$projname/data/processed
 
+mkdir $basedir/$projname/data/ref
 cd $basedir/$projname/data/ref
+
 wget https://busco-data.ezlab.org/v4/data/lineages/diptera_odb10.2020-08-05.tar.gz
 tar -xvf diptera_odb10.2020-08-05.tar.gz
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/215/GCA_000001215.4_Release_6_plus_ISO1_MT/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
 gunzip GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
 
-basedir=~/
-projname=nanopore_assembly
-basedir=$basedir
-processed=$basedir/$projname/data/processed
 ont_data=$processed/unitigs.fa
 lineage=$basedir/$projname/data/ref/diptera_odb10
 flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna
@@ -200,8 +201,7 @@ flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genom
 cd $basedir/$projname/output/reports
 
 run_busco -i $ont_data -l $lineage -o ont_data_busco -m genome 
-run_busco -i flybase -l $lineage -o flybase_data_busco -m genome 
-
+run_busco -i $flybase -l $lineage -o flybase_data_busco -m genome 
 ```
 
 
