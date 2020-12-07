@@ -173,6 +173,7 @@ rm tmp/{r6scaff,r6ctg,ont}_fifo
 
 ![Contiguity plot](r6_v_ont.png)
 
+```
 #### BUSCO scores
 Download BUSCO pipeline from bioconda and [lineage data](https://busco-data.ezlab.org/v4/data/lineages/) for order *Diptera*. First run busco on the ONT assembly, then on the FlyBase assembly.
 ```
@@ -192,10 +193,11 @@ cd $basedir/$projname/data/ref
 wget https://busco-data.ezlab.org/v4/data/lineages/diptera_odb10.2020-08-05.tar.gz
 tar -xvf diptera_odb10.2020-08-05.tar.gz
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/215/GCA_000001215.4_Release_6_plus_ISO1_MT/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
+gunzip GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
 
 ont_data=$processed/unitigs.fa
 lineage=$basedir/$projname/data/ref/diptera_odb10
-flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
+flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna
 
 cd $basedir/$projname/output/reports
 
@@ -218,4 +220,5 @@ in comparison to the BUSCO short summary for the FlyBase assembly:
 
 
 These results are somewhat concerning, since so many BUSCOs are missing in our assembly. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO scores should be a lot higher.
+
 
