@@ -160,7 +160,7 @@ plotCDF2 tmp/{r6scaff,r6ctg,ont}_fifo /dev/stdout \
 rm tmp/{r6scaff,r6ctg,ont}_fifo
 ```
 
-![Contiguity plot] (https://github.com/erebboah/ee282/blob/homework4/output/r6_v_ont.png?raw=true)
+![Contiguity plot](r6_v_ont.png)
 
 #### BUSCO scores
 Download BUSCO pipeline from bioconda and [lineage data](https://busco-data.ezlab.org/v4/data/lineages/) for order *Diptera*. First run busco on the ONT assembly, then on the FlyBase assembly.
