@@ -56,7 +56,7 @@ Rscript hist_cdf_plots.R -d stats_under100kb.txt -o . -b 100 -n under_100kb
 ![Over 100kb partition histograms](over_100kb_histograms.png)
 ![Under 100kb partition histograms](under_100kb_histograms.png)
 
-Use bioawk again to get the lengths of each sequence, sort by descending, and use plotCDF tool to generate cumulative distribution plots for each partition.  
+Use bioawk again to get the lengths of each sequence, sort by descending, and use plotCDF tool to generate cumulative distribution plots for each partition. R script can be found in code/scripts 
 ```
 bioawk -c fastx '{print length($seq) }' dmel-all-chromosome-r6.36.over100kb.fasta | sort -r  > lengths_over100kb.txt
 plotCDF lengths_over100kb.txt cdf_over_100kb.png
