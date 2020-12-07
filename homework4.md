@@ -53,6 +53,9 @@ bioawk -c fastx '{print $name "\t" length($seq) "\t" gc($seq)}' dmel-all-chromos
 Rscript hist_cdf_plots.R -d stats_over100kb.txt -o . -b 7 -n over_100kb
 Rscript hist_cdf_plots.R -d stats_under100kb.txt -o . -b 100 -n under_100kb
 ```
+![Over 100kb partition histograms](over_100kb_histograms.png)
+![Under 100kb partition histograms](under_100kb_histograms.png)
+
 Use bioawk again to get the lengths of each sequence, sort by descending, and use plotCDF tool to generate cumulative distribution plots for each partition.  
 ```
 bioawk -c fastx '{print length($seq) }' dmel-all-chromosome-r6.36.over100kb.fasta | sort -r  > lengths_over100kb.txt
@@ -61,6 +64,9 @@ plotCDF lengths_over100kb.txt cdf_over_100kb.png
 bioawk -c fastx '{print length($seq) }' dmel-all-chromosome-r6.36.under100kb.fasta | sort -r  > lengths_under100kb.txt
 plotCDF lengths_under100kb.txt cdf_under_100kb.png
 ```
+![Over 100kb partition cdf](cdf_over_100kb.png)
+![Under 100kb partition cdf](cdf_under_100kb.png)
+
 ## Genome assembly
 ### Assemble a genome from MinION reads
 Download and unzip sequence data, then use minimap2 to find all-vs-all overlaps between Oxford Nanopore reads. Miniasm finds the order of the read overlaps and outputs a GFA (graphical fragment assembly) file.
