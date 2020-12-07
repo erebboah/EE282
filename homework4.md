@@ -200,24 +200,23 @@ flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genom
 
 cd $basedir/$projname/output/reports
 
-run_busco -c 16 -i $ont_data -l $lineage -o ont_data_busco -m genome 
-run_busco -c 16 -i $flybase -l $lineage -o flybase_data_busco -m genome 
+run_busco -f -c 16 -i $ont_data -l $lineage -o ont_data_busco -m genome 
+run_busco -f -c 16 -i $flybase -l $lineage -o flybase_data_busco -m genome 
 
 ```
 The BUSCO short summary for the ONT assembly is:
 
-	C:0.3%[S:0.3%,D:0.0%],F:1.7%,M:98.0%,n:3285
-
-	9	Complete BUSCOs (C)
-	9	Complete and single-copy BUSCOs (S)
-	0	Complete and duplicated BUSCOs (D)
-	57	Fragmented BUSCOs (F)
-	3219	Missing BUSCOs (M)
-	3285	Total BUSCO groups searched
 
 in comparison to the BUSCO short summary for the FlyBase assembly:
 
+	C:99.4%[S:99.0%,D:0.4%],F:0.2%,M:0.4%,n:3285
 
-These results are somewhat concerning, since so many BUSCOs are missing in our assembly. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO scores should be a lot higher.
+	3266	Complete BUSCOs (C)
+	3252	Complete and single-copy BUSCOs (S)
+	14	Complete and duplicated BUSCOs (D)
+	5	Fragmented BUSCOs (F)
+	14	Missing BUSCOs (M)
+	3285	Total BUSCO groups searched
 
+These results may appear concerning, since so many BUSCOs are missing in our assembly. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO score is expected to be ~99% complete. The N50 was ~3x higher in the reference assembly, indicating it is much more complete. 
 
