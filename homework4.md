@@ -176,7 +176,7 @@ rm tmp/{r6scaff,r6ctg,ont}_fifo
 #### BUSCO scores
 Download BUSCO pipeline from bioconda and [lineage data](https://busco-data.ezlab.org/v4/data/lineages/) for order *Diptera*. First run busco on the ONT assembly, then on the FlyBase assembly.
 ```
-srun -c 32 -A ecoevo282 --pty --x11 bash -i
+srun -c 16 -A ecoevo282 --pty --x11 bash -i
 conda activate ee282
 
 conda install -c bioconda busco
@@ -192,17 +192,30 @@ cd $basedir/$projname/data/ref
 wget https://busco-data.ezlab.org/v4/data/lineages/diptera_odb10.2020-08-05.tar.gz
 tar -xvf diptera_odb10.2020-08-05.tar.gz
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/001/215/GCA_000001215.4_Release_6_plus_ISO1_MT/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
-gunzip GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
 
 ont_data=$processed/unitigs.fa
 lineage=$basedir/$projname/data/ref/diptera_odb10
-flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna
+flybase=$basedir/$projname/data/ref/GCA_000001215.4_Release_6_plus_ISO1_MT_genomic.fna.gz
 
 cd $basedir/$projname/output/reports
 
-run_busco -i $ont_data -l $lineage -o ont_data_busco -m genome 
-run_busco -i $flybase -l $lineage -o flybase_data_busco -m genome 
+run_busco -c 16 -i $ont_data -l $lineage -o ont_data_busco -m genome 
+run_busco -c 16 -i $flybase -l $lineage -o flybase_data_busco -m genome 
+
 ```
+The BUSCO short summary for the ONT assembly is:
+
+	C:0.3%[S:0.3%,D:0.0%],F:1.7%,M:98.0%,n:3285
+
+	9	Complete BUSCOs (C)
+	9	Complete and single-copy BUSCOs (S)
+	0	Complete and duplicated BUSCOs (D)
+	57	Fragmented BUSCOs (F)
+	3219	Missing BUSCOs (M)
+	3285	Total BUSCO groups searched
+
+in comparison to the BUSCO short summary for the FlyBase assembly:
 
 
+These results are somewhat concerning, since so many BUSCOs are missing in our assembly. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO scores should be a lot higher.
 
