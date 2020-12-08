@@ -206,6 +206,14 @@ run_busco -f -c 16 -i $flybase -l $lineage -o flybase_data_busco -m genome
 ```
 The BUSCO short summary for the ONT assembly is:
 
+	C:0.3%[S:0.3%,D:0.0%],F:1.3%,M:98.4%,n:3285
+
+	10	Complete BUSCOs (C)
+	10	Complete and single-copy BUSCOs (S)
+	0	Complete and duplicated BUSCOs (D)
+	43	Fragmented BUSCOs (F)
+	3232	Missing BUSCOs (M)
+	3285	Total BUSCO groups searched
 
 in comparison to the BUSCO short summary for the FlyBase assembly:
 
@@ -218,5 +226,5 @@ in comparison to the BUSCO short summary for the FlyBase assembly:
 	14	Missing BUSCOs (M)
 	3285	Total BUSCO groups searched
 
-These results may appear concerning, since so many BUSCOs are missing in our assembly. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO score is expected to be ~99% complete. The N50 was ~3x higher in the reference assembly, indicating it is much more complete. 
+These results may appear concerning, since the ONT data is only 0.3% complete. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO score is expected to be ~99% complete. The N50 was ~3x higher in the reference assembly, indicating it is much more complete. Assuming the ONT data was created in lab by a small group or single person, its BUSCO score might not be the most accurate judge of the quality or usefulness of the data. 
 
