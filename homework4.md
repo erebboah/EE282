@@ -56,6 +56,8 @@ Rscript hist_cdf_plots.R -d stats_under100kb.txt -o . -b 100 -n under_100kb
 ![Over 100kb partition histograms](over_100kb_histograms.png)
 ![Under 100kb partition histograms](under_100kb_histograms.png)
 
+There are only 7 sequences over 100kb but many more under 100kb belonging to non-chromosomal sequences.
+
 Use bioawk again to get the lengths of each sequence, sort by descending, and use plotCDF tool to generate cumulative distribution plots for each partition. R script can be found in code/scripts 
 ```
 bioawk -c fastx '{print length($seq) }' dmel-all-chromosome-r6.36.over100kb.fasta | sort -r  > lengths_over100kb.txt
@@ -71,6 +73,8 @@ Over 100kb:
 Under 100kb:
 
 ![Under 100kb partition cdf](cdf_under_100kb.png)
+
+These CDF plots are expected; the partition over 100kb will be much steeper than the partition under 100kb.
 
 ## Genome assembly
 ### Assemble a genome from MinION reads
@@ -124,7 +128,7 @@ awk ' $0 ~/^S/ { print ">" $2" \n" $3 } ' $processed/assembly.gfa \
 | fold -w 60 \
 > $processed/unitigs.fa
 ```
-The N50 of this assembly is **7,900,283**, compared to the *Drosophila* FlyBase contig N50 which is **21,485,538**.
+The N50 of this assembly is **7,900,283**, compared to the *Drosophila* FlyBase contig N50 which is **21,485,538**. We expect the ONT data to have a lower N50 than FlyBase, but it is not unreasonably lower. 
 
 #### Comparing assembly to both the contig assembly and the scaffold assembly
 Use the FIFO example from class to generate a contiguity plot comparing the Oxford Nanopore contig assembly (ONT_Ctg) to the FlyBase *Drosophila* [community reference](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001215.4) contig/scaffold assembly (FB_Ctg/FB_Scaff).
@@ -172,6 +176,8 @@ rm tmp/{r6scaff,r6ctg,ont}_fifo
 ```
 
 ![Contiguity plot](r6_v_ont.png)
+
+The contiguity plot shows the ONT contig assembly to the FlyBase scaffold and contig assemblies, where all the sequences are ranked by length and cumulatively added up. The ONT assembly is surprisingly similar to the FlyBase assembly, even though the ONT data is presumably from a single experiment and the FlyBase assembly has been curated by the community and is considered the gold standard.
 
 #### BUSCO scores
 Download BUSCO pipeline from bioconda and [lineage data](https://busco-data.ezlab.org/v4/data/lineages/) for order *Diptera*. First run busco on the ONT assembly, then on the FlyBase assembly.
@@ -226,5 +232,5 @@ in comparison to the BUSCO short summary for the FlyBase assembly:
 	14	Missing BUSCOs (M)
 	3285	Total BUSCO groups searched
 
-These results may appear concerning, since the ONT data is only 0.3% complete. However, it is worth keeping in mind that the FlyBase reference was probably built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO score is expected to be ~99% complete. The N50 was ~3x higher in the reference assembly, indicating it is much more complete. Assuming the ONT data was created in lab by a small group or single person, its BUSCO score might not be the most accurate judge of the quality or usefulness of the data. 
+These results may appear concerning, since the ONT data is only 0.3% complete. However, it is worth keeping in mind that the FlyBase reference was built with a lot more data and carefully managed by the *Drosophila* community, so its BUSCO score is expected to be ~99% complete. The N50 was ~3x higher in the reference assembly, indicating it is much more complete. Assuming the ONT data was created in lab by a small group or single person, cheaply (since ONT is probably the cheapest sequencing technology), its BUSCO score might not be the most accurate judge of the quality or usefulness of the data. 
 
