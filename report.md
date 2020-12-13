@@ -16,4 +16,5 @@ Principal component analyis (PCA) was run on this CPM>2 matrix, as well as on CP
 
 
 ## Results
-
+![PCA all samples](pca_log2cpmGreaterthan2_allSamples_SampleType.png)
+![UMAP all samples](umap_SampleType_allSamples.png)
