@@ -8,4 +8,4 @@ MicroRNA-seq is a form of RNA-seq that captures small (~22bp), functional RNAs u
 
 
 ## Results
-![Figure 1](https://github.com/erebboah/ee282/blob/final_project/fig1_experimentOverview.png =1200x1000)
+![Figure 1](fig1_experimentOverview.png =1200x1000)
