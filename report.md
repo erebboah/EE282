@@ -16,5 +16,9 @@ Principal component analyis (PCA) was run on this CPM>2 matrix, as well as on CP
 
 
 ## Results
+PCA of all 152 samples shows that samples mainly cluster together based on if they are derived from tissues compared to cell lines and differentiated cell lines. This could be due to differing RNA quality between samples; due to the experimental processing, microRNA-seq performs better on high-quality (RIN>8) RNA. In comparison, the UMAP clusters are more tightly grouped 
 ![PCA all samples](pca_log2cpmGreaterthan2_allSamples_SampleType.png)
+![PCA all samples labeled by tissue type](pca_log2cpmGreaterthan2_TissueType_allSamples.png)
 ![UMAP all samples](umap_SampleType_allSamples.png)
+![UMAP all samples labeled by tissue type](umap_TissueType_allSamples.png)
+![UMAP tissue samples only](umap_TissueType_Tissues.png)
