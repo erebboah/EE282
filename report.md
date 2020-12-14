@@ -16,14 +16,7 @@ Principal component analyis (PCA) was run on this CPM>2 matrix, as well as on CP
 
 
 ## Results
-PCA of all 152 samples shows that samples mainly cluster together based on if they are derived from tissues compared to cell lines and differentiated cell lines. This could be due to differing RNA quality between samples; due to the experimental processing, microRNA-seq performs better on high-quality (RIN>8) RNA. 
-![PCA all samples](pca_log2cpmGreaterthan2_allSamples_SampleType.png)
-
-In comparison, the UMAP clusters are more tightly grouped by tissue type. For example, the myocyte differentiated cells samples cluster closely to muscle and heart tissue samples, and pancreas tissue samples cluster closely to pancreatic differentiated cells.
-
-![UMAP all samples](umap_SampleType_allSamples.png)
-![UMAP all samples labeled by tissue type](umap_TissueType_allSamples.png)
-![UMAP tissue samples only](umap_TissueType_Tissues.png)
+PCA of all 152 samples shows that samples mainly cluster together based on if the RNA was isolated from from tissues versus cell lines and differentiated cell lines. This could be due to differing RNA quality between samples; due to the experimental processing, microRNA-seq performs better on high-quality (RIN>8) RNA. In comparison, the UMAP clusters are more tightly grouped by tissue type. For example, the myocyte differentiated cells samples cluster closely to muscle and heart tissue samples, and pancreas tissue samples cluster closely to pancreatic differentiated cells.
 
 ## Discussion
 As an initial exploratory analysis, all microRNA-seq samples were projected in low-dimensionality spaces. MicroRNAs expressed in samples from similar derived/simulated tissues that clustered together  and apart from other samples are likely to be tissue-specific.  entral role of muscle-specific microRNAs or myomiRs the muscle samples were as well as hormonal tissues such as pancreas, ovaries, testes, and adrenal glands, and stem cells. Based on PCA and UMAP analysis, differential expression analysis was carried out on cardiac tissue samples compared to all other tissues.  and are interesting candidates for further analysis.
