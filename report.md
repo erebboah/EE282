@@ -19,6 +19,10 @@ Principal component analyis (PCA) was run on this CPM>2 matrix containing all sa
 PCA of all 152 samples shows that samples mainly cluster together based on if the RNA was isolated from from tissues versus cell lines and differentiated cell lines. This could be caused by differing RNA quality between samples; due to the experimental processing, microRNA-seq performs better on high-quality (RIN>8) RNA. In comparison, the UMAP clusters are more tightly grouped by tissue type. For example, the UMAP shows the myocyte differentiated cells cluster closely to muscle and heart tissues, while this distinction is less clear in the PCA.
 
 ![Figure 2 PCA and UMAP of all samples](pca_umap_allSamples_SampleTypes.png)
+![Figure 3 PCA and UMAP of all samples labeled by tissue](pca_umap_allSamples_TissueTypes.png)
+![Figure 4 PCA and UMAP of tissue samples](pca_umap_TissueType_Tissue.png)
+![Figure 5 PCA and UMAP of cell line/differentiated cell line samples](pca_umap_TissueType_CLsDCLs.png))
+
 
 ## Discussion
 As an initial exploratory analysis, all microRNA-seq samples were projected in low-dimensionality spaces. MicroRNAs expressed in samples from similar derived/simulated tissues that clustered together  and apart from other samples are likely to be tissue-specific. The central role of muscle-specific microRNAs is most likely why the muscle samples form their own cluster. In addition, microRNAs have been implicated to have a role in stem cell self-renewal. Based on PCA and UMAP analysis, differential expression analysis was carried out on cardiac tissue samples compared to all other tissues as well as stem cells compared to all other cell line samples.
