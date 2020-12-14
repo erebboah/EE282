@@ -22,7 +22,7 @@ PCA of all 152 samples shows that samples mainly cluster together based on if th
 ![Figure 2 PCA and UMAP of all samples](pca_umap_allSamples_SampleTypes.png)
 ![Figure 3 PCA and UMAP of all samples labeled by tissue](pca_umap_allSamples_TissueTypes.png)
 ![Figure 4 PCA and UMAP of tissue samples](pca_umap_TissueType_Tissue.png)
-![Figure 5 PCA and UMAP of cell line/differentiated cell line samples](pca_umap_TissueType_CLsDCLs.png))
+![Figure 5 PCA and UMAP of cell line/differentiated cell line samples](pca_umap_TissueType_CLsDCLs.png)
 
 The differentially expressed microRNAs are indicated in the following volcano plots.
 
