@@ -43,6 +43,8 @@ There are 11 matching tissue long-read libraries, mostly from heart, and 12 matc
 
 ![Figure 7 Matching long read libraries](matchedPB_barplots.png)
 
+![Figure 8 Percent of reads with binding site](percentreads_barplots.png)
+
 ## Discussion
 As an initial exploratory analysis, all microRNA-seq samples were projected in low-dimensionality spaces. MicroRNAs expressed in samples from similar derived/simulated tissues that clustered together and apart from other samples are likely to be tissue-specific. The central role of muscle-specific microRNAs could be why the muscle samples form their own cluster. In addition, microRNAs have been implicated to have a role in stem cell self-renewal, possibly reflected by the hESC/iPSC samples clustering together. 
 
